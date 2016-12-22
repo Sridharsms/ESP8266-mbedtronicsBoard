@@ -2,7 +2,7 @@
 #include <DHT11.h>
 
 const char* ssid     = "SRI"; // Your Router ssid
-const char* password = "XXXXXXXX"; // Your Router Password
+const char* password = "XXXXXXXX"; // Your Router Password now
 
 int pin = 4;
 
