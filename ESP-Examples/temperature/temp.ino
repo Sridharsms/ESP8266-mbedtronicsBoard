@@ -1,10 +1,13 @@
 #include <ESP8266WiFi.h>
 #include <DHT11.h>
 
+/* Load the above library to Arduino & flashe it to our board.
+Once flashed open Serial Monitor on IDE & watch the output. Or open the https */
+
 const char* ssid     = "YOUR-SSID"; // Your Router ssid
 const char* password = "XXXXXXXX"; // Your Router Password now
 
-int pin = 4;
+int pin = 4; //Initialize the GPIO5 pin for our board ,Temperature/Humidity Sensor is connected.(Since GPIO4 & GPIO5 Swapped*/
 
 WiFiServer server(80);
 DHT11 dht11(pin);
@@ -29,7 +32,7 @@ Serial.println();
 Serial.print("Connecting to ");
 Serial.println(ssid);
 
-WiFi.begin(ssid, password);
+WiFi.begin(ssid, password); 
 
 while (WiFi.status() != WL_CONNECTED) {
 delay(500);
