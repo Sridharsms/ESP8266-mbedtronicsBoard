@@ -1,0 +1,71 @@
+Specification: 
+
+Wireless 802. 11 b /g /n standards 
+Support for STA / AP two modes of operation 
+Built-in TCP / IP protocol stack, you can configure a socket 
+Supports standard TCP / UDP Server and Client 
+8 DIP switches for Enabling Relay,LED,Temperature/Humidity,Buzzer,RGB.
+GPIO15 (output pin) connected to -> RELAY (Corresponds to DIP Switch 1)
+GPIO4 (output pin) connected to -> LED  (Corresponds to DIP Switch 2)
+GPIO5 (Input pin) connected to -> DHT11 (Temperature/Humidity) ( Corresponds to DIP Switch 3)
+GPIO16 (output pin) connected to -> Buzzer  (Corresponds to DIP Switch 4)
+GPIO14 (output pin) connected to -> R LED (RGB) ( Corresponds to DIP Switch 5)
+GPIO12 (output pin) connected to -> G LED (RGB)  (Corresponds to DIP Switch 6)
+GPIO13 (output pin) connected to -> B LED (RGB)  (Corresponds to DIP Switch 7)
+.......................................................................................................................
+
+ADC (input pin) connected to -> LDR.
+GPIO2 (input pin) connected to -> Micro SWITCH.
+Large soldering pad area is also provided.
+All the GPIO pins are exposed for your external usage with breadboards.
+Can also be used as the Target board with bare minimum components to reduce the cost. Please request me for bare board with just the ESP8266E/F & the PCB Board soldered with Regulator.
+
+WiFi current: continuous transmission: Nearly 70mA (200mA MAX), Standby: < 200uA 
+
+Directly use the Arduino IDE to program via the FTDI serial controller (Please connect the 3.3v jumper on the FTDI board).
+
+Steps to Operate:
+1) Connect 5v, 2A  source to the input pins. Brown wire is +terminal , Black wire is Ground.
+2) Connect Tx pin of this board to FTDI Rx pin,
+3) Connect Rx pin of this board to FTDI Tx pin.
+4) Connect GND pin of this board to FTDI GND pin.
+5) Install the ESP8266 Arduino Library in the Arduino IDE ( You can refer to lot of links on the web)
+6) Select the ESP Generic board on Arduino IDE 
+7) Pick an example 
+8) Compile & Upload
+9)  While Upload starts PRESS UPLOAD & RESET Button together & release RESET button immediately. After 3 or 4 seconds release UPLOAD button. Thats it 
+
+Code Initilization in Arduino IDE:
+
+/* GPIO4 & GPIO5 are swapped */
+
+void setup() {
+  /* Lets initilze in the DIP Switch Order (Refer Board) */
+  pinMode(15, OUTPUT);     //GPIO15 connected to RELAY
+  pinMode(5, OUTPUT);      // Initialize the GPIO4 LED ( means 5 ,swapped)
+  pinMode(4, INPUT);          // Initialize the GPIO5 Temperature/Humidity as INPUT PORT to read only
+  pinMode(16, OUTPUT);    // GPIO16 connected to BUZZER
+  pinMode(14, OUTPUT);    // GPIO14 connected to RED-LED
+  pinMode(12, OUTPUT);    // GPIO12 connected to GREEN-LED
+  pinMode(13, OUTPUT);    // GPIO13 connected to BLUE-LED
+  
+/* Lets initilize other available Sensor which are directly connected to ESP */
+  pinMode(2, OUTPUT);     // If you want to Blink internal LED. Initialize the LED_BUILTIN pin as an output, the one which blinks on the ESP8266 IC
+  pinMode(A0,INPUT);       // A0 is connected to LDR directly with out the DIP switch.
+
+}
+
+// the loop function runs over and over again forever
+void loop() {
+ // write anything here like blinking or reading from Temp/humidity/LDR  sensor
+}
+
+I have included schematic &  simple programs on the github below
+
+https://github.com/Sridharsms/ESP8266-mbedtronicsBoard.git
+
+For Video :
+Board -> https://youtu.be/1C0Eo2KQrJw
+Connetcion -> https://youtu.be/DqTXLhsazac
+Upload -> https://youtu.be/f_lx0lAO7Qc
+Blink program -> https://youtu.be/7zzZXMQymzM
