@@ -1,0 +1,13 @@
+ESP Sensor Board:
+https://youtu.be/1C0Eo2KQrJw
+
+ESP Connection with FTDI:
+https://youtu.be/DqTXLhsazac
+
+ESP Program upload:
+https://youtu.be/f_lx0lAO7Qc
+
+ESP Simple Blink Program
+https://youtu.be/7zzZXMQymzM
+
+
